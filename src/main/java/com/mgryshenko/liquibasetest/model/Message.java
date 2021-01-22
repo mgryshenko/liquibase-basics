@@ -19,6 +19,9 @@ public class Message {
     @Column(name = "content")
     private String content;
 
+    @Column(name = "author")
+    private String author;
+
     @CreatedDate
     @Column(name = "created")
     private Date created;
@@ -27,8 +30,9 @@ public class Message {
     @Column(name = "updated")
     private Date updated;
 
-    public static Message fromContent(String content) {
+    public static Message fromContent(String author, String content) {
         Message message = new Message();
+        message.setAuthor(author);
         message.setContent(content);
         message.setCreated(new Date());
         message.setUpdated(new Date());

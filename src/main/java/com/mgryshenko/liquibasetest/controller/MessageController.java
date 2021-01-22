@@ -24,7 +24,7 @@ public class MessageController {
 
     @PostMapping(value = "/message", produces = {MediaType.APPLICATION_JSON_VALUE})
     public @ResponseBody Message post(@RequestBody ContentDto dto) {
-        return repository.save(Message.fromContent(dto.getContent()));
+        return repository.save(Message.fromContent(dto.getAuthor(), dto.getContent()));
     }
 
     @GetMapping(value = "/message/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -54,6 +54,9 @@ public class MessageController {
     
     @Data
     public static class ContentDto {
+        @JsonProperty("author")
+        private String author;
+
         @JsonProperty("content")
         private String content;
     }
