@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.0.0
+      author: misha
+      changes:
+        - createTable:
+            tableName: messages
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: content
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created
+                  type: timestamp
+                  defaultValue: "CURRENT_TIMESTAMP()"
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated
+                  type: timestamp
+                  defaultValue: "CURRENT_TIMESTAMP()"
+                  constraints:
+                    nullable: false

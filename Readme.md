@@ -1,0 +1,1 @@
+Simplest project to play with basics of Liquibase (https://www.liquibase.com/)
